@@ -15,6 +15,7 @@ open index.html
 
 comment out `const enter = require('./deps/enter');` in index.js and ensure `import enter from './deps/enter';` is not commented out.
 
+````
 file: index.js
   imports enter.js
     file: enter.js
@@ -23,12 +24,15 @@ file: index.js
           import depA from './dep-a';
             file: dep-a
               import { bsFunction } from './dep-b';
+````
 
+````
 callstack
   index.js enter()
     deps/enter.js depB()
       deps/dep-b.js depA()
         deps/dep-a.js bsFunction() // works!
+````
 
 ## case 2:
 
